@@ -10,6 +10,7 @@ class CreateFighter < ActiveRecord::Migration[6.1]
       t.integer :draws
       t.integer :manager_id
       t.integer :promotion_id
+      t.string :image
     end
   end
 end

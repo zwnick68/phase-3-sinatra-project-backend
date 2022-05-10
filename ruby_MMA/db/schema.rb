@@ -22,14 +22,17 @@ ActiveRecord::Schema.define(version: 2022_05_05_153322) do
     t.integer "draws"
     t.integer "manager_id"
     t.integer "promotion_id"
+    t.string "image"
   end
 
   create_table "managers", force: :cascade do |t|
     t.string "name"
+    t.string "image"
   end
 
   create_table "promotions", force: :cascade do |t|
     t.string "name"
+    t.string "image"
   end
 
 end
