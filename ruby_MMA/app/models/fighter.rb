@@ -8,7 +8,7 @@ class Fighter < ActiveRecord::Base
        self.update(manager_id: manager.id) 
     #    unless self.managers == manager
     end
-    def Fighter.match(fighter1, fighter2)
+    def self.match(fighter1, fighter2)
         "#{fighter1.name} vs. #{fighter2.name}"
     end
 
