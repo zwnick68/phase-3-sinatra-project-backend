@@ -22,4 +22,40 @@ class ApplicationController < Sinatra::Base
         {promotions: promotions}.to_json(include: {
             fighters: {only: [:name, :weightclass]}})
     end
+
+    delete '/:id' do
+    fighter = Fighter.find(params[:id])
+    fighter.destroy
+    {fighters: fighter}.to_json
+    end  
+
+    post '/' do
+        fighter = Fighter.create(
+        name: params[:name]
+        height: params[:height]
+        reach: params[:reach]
+        weightclass: params[:weightclass]
+        wins: params[0]
+        losses: params[0]
+        draws: params[0]
+        manager_id: params[:manager_id]
+        promotion_id: params[:promotion_id]
+        image: params[:image]
+        )
+        {fighter: fighter}.to_json
+    end
+    patch "/" do 
+        fighter = Fighter.update(
+        name: params[:name]
+        height: params[:height]
+        reach: params[:reach]
+        weightclass: params[:weightclass]
+        wins: params[:wins]
+        losses: params[:losses]
+        draws: params[:draws]
+        manager_id: params[:manager_id]
+        promotion_id: params[:promotion_id]
+        image: params[:image]
+        )
+    end
 end
