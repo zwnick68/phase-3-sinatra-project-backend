@@ -1,6 +1,6 @@
 class ApplicationController < Sinatra::Base
     # set :default_content_type, "application/json"
-    get '/' do
+    get '/fighters' do
         fighters = Fighter.all
         {Fighters: fighters}.to_json(include: {
             manager: {only: [:name], include: {
@@ -8,7 +8,7 @@ class ApplicationController < Sinatra::Base
             }}})
     end
 
-    get '/:id' do
+    get '/fighters/:id' do
         fighter = Fighter.find(params[:id])
         {fighters: fighter}.to_json 
     end
@@ -19,6 +19,7 @@ class ApplicationController < Sinatra::Base
             fighters: {only: [:name, :image], include: {
             promotion: {only: [:name]}
             }}})
+        
            
     end
 
@@ -26,6 +27,7 @@ class ApplicationController < Sinatra::Base
         promotions = Promotion.all
         {promotions: promotions}.to_json(include: {
             fighters: {only: [:name, :weightclass]}})
+        
     end
 
     delete '/:id' do
