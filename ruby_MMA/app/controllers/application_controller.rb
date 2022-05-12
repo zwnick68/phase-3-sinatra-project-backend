@@ -49,8 +49,9 @@ class ApplicationController < Sinatra::Base
         )
         fighter.to_json
     end
-    patch "/" do 
-        fighter = Fighter.update(
+    patch "/:id" do 
+        fighter = Fighter.find(params[:id])
+        fighter.update(
         name: params[:name],
         height: params[:height],
         reach: params[:reach],
