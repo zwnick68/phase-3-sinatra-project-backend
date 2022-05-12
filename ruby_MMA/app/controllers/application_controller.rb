@@ -42,7 +42,7 @@ class ApplicationController < Sinatra::Base
         promotion_id: params[:promotion_id],
         image: params[:image],
         )
-        {fighter: fighter}.to_json
+        fighter.to_json
     end
     patch "/" do 
         fighter = Fighter.update(
@@ -57,6 +57,6 @@ class ApplicationController < Sinatra::Base
         promotion_id: params[:promotion_id],
         image: params[:image]
         )
-        {fighter: fighter}.to_json
+        fighter.to_json
     end
 end
