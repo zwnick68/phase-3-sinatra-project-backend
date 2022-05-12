@@ -30,7 +30,7 @@ class ApplicationController < Sinatra::Base
         
     end
 
-    delete '/:id' do
+    delete '/fighters/:id' do
     fighter = Fighter.find(params[:id])
     fighter.destroy
     {fighters: fighter}.to_json
