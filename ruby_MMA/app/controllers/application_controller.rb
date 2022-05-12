@@ -8,6 +8,11 @@ class ApplicationController < Sinatra::Base
             }}})
     end
 
+    get '/:id' do
+        fighter = Fighter.find(params[:id])
+        {fighters: fighter}.to_json 
+    end
+
     get '/managers' do
         managers = Manager.all
         {managers: managers}.to_json(include: {
